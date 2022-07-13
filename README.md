@@ -1,11 +1,10 @@
 # zio2-scala3-bug
 
 Running `sbt clean;compile` causes this error,
-however as you can see a second/incremental compile does work sometimes.
+however sometimes a second/incremental compile does work if it only needs to compile 1 Scala source
 
 ```
-[IJ]clean;compile
-[success] Total time: 0 s, completed 13 Jul 2022, 22:43:05
+[IJ]compile
 [info] compiling 2 Scala sources to /Users/john_duffell/code/zio2-scala3-bug/target/scala-3.1.3/classes ...
 [error] -- Error: /Users/john_duffell/code/zio2-scala3-bug/src/main/scala/Testing.scala:12:31 
 [error] 12 |  val error = zioEffect.provide(layer1, layer2)
@@ -41,10 +40,6 @@ however as you can see a second/incremental compile does work sometimes.
 [error]     ----------------------------------------------------------------------------
 [error] one error found
 [error] (Compile / compileIncremental) Compilation failed
-[error] Total time: 2 s, completed 13 Jul 2022, 22:43:06
-[IJ]compile
-[info] compiling 1 Scala source to /Users/john_duffell/code/zio2-scala3-bug/target/scala-3.1.3/classes ...
-[info] done compiling
-[success] Total time: 1 s, completed 13 Jul 2022, 22:43:15
+[error] Total time: 1 s, completed 13 Jul 2022, 22:59:02
 [IJ]
 ```

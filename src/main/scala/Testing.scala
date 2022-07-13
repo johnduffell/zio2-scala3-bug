@@ -6,7 +6,7 @@ object Testing {
   val layer2: URLayer[Any, Layer2] = ???
 
   // to fail, we need to reference EmptyCaseClass1 and Layer2 from the other file, *and* have two layers needed
-  val zioEffect: ZIO[Layer1 with Layer2, Nothing, EmptyCaseClass1] = ???
+  val zioEffect: ZIO[Layer1 with Layer2, Nothing, EmptyCaseClass] = ???
 
   // this line fails to *clean* compile - however often compiling a second time works ok.
   val error = zioEffect.provide(layer1, layer2)
