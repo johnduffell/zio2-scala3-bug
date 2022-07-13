@@ -1,18 +1,15 @@
-import MyLayer.EmptyCaseClass
 import zio.*
 import zio.json.*
 
-case class Success(
-  a: String,
-)
+case class EmptyCaseClass1()
 
-trait MyLayer :
-  def get(): IO[Nothing, Unit]
+case class EmptyCaseClass2()
 
-object MyLayer {
+trait Layer2 {}
+//to fail, has to be the companion object of the above Layer
+object Layer2 {
 
-  case class EmptyCaseClass()
-
-  given JsonDecoder[EmptyCaseClass] = DeriveJsonDecoder.gen[EmptyCaseClass]
+  // and a generated decoder needs to be inside it (even if unused)
+  given JsonDecoder[EmptyCaseClass2] = DeriveJsonDecoder.gen[EmptyCaseClass2]
 
 }
